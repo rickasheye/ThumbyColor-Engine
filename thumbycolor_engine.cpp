@@ -287,6 +287,10 @@ bool ThumbyColorEngine::buttonReleased(uint8_t button) {
   return gpio_get(button);
 }
 
+bool ThumbyColorEngine::buttonHeld(uint8_t button){
+  return (digitalRead(button) == LOW);
+}
+
 void ThumbyColorEngine::display() {
   setWindow(0, 0, DISPLAY_WIDTH - 1, DISPLAY_HEIGHT - 1);
   gpio_put(LCD_DC_PIN, 1);
